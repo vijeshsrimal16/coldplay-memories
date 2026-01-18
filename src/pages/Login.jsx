@@ -9,7 +9,6 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // 🌙 hardcoded Coldplay creds
     if (username === "coldplay" && password === "memories") {
       localStorage.setItem("coldplay_auth", "true");
       navigate("/home");
@@ -19,40 +18,39 @@ export default function Login() {
   };
 
   return (
-    <div className="login-page">
-      {/* Background video */}
-      <video
-        className="bg-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
+    <div className="login-wrapper">
+
+      {/* 🎥 Background video */}
+      <video className="bg-video" autoPlay loop muted playsInline>
         <source src="/Coldplay.mp4" type="video/mp4" />
       </video>
 
-      {/* Glass container */}
-      <div className="login-box">
-        <h1>Coldplay Memories</h1>
-        <p className="tagline">A year ago. A lifetime of feelings.</p>
+      {/* 🌑 Overlay */}
+      <div className="overlay">
 
-        <input
-          type="text"
-          placeholder="🌙 Your Universe Name"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        {/* 🧊 Glass container */}
+        <div className="glass-box">
+          <h1>Coldplay Memories</h1>
+          <p>A year ago. A lifetime of feelings.</p>
 
-        <input
-          type="password"
-          placeholder="✨ Your Magic Code"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <input
+            placeholder="🌙 Your Universe Name"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
 
-        <button onClick={handleLogin}>
-          UnlockMemz
-        </button>
+          <input
+            type="password"
+            placeholder="✨ Your Magic Code"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button onClick={handleLogin}>
+            UnlockMemz
+          </button>
+        </div>
+
       </div>
     </div>
   );
