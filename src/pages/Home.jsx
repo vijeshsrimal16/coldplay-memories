@@ -11,31 +11,46 @@ export default function Home() {
     <div className="coldplay-bg" />
     <div className="home-wrapper">
 
-      {/* HERO */}
       <section className="hero-title">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
-        >
-          Coldplay Memories
-        </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          Moments that still glow.
-        </motion.p>
-      </section>
+  <div className="hero-content">
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2 }}
+    >
+      Coldplay Memories
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.6 }}
+    >
+      Moments that still glow.
+    </motion.p>
+  </div>
+
+  <motion.img
+    className="hero-image"
+    src="/memories/Memory (12).jpeg"
+    initial={{ opacity: 0, x: 60 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 1.2, delay: 0.4 }}
+  />
+
+</section>
+
 
       <DualMemory
-        leftImage={images[0]}
-        rightImage={images[1]}
+        leftImage={images[10]}
+        rightImage={images[12]}
         leftText="The crowd was loud, but you felt close."
         rightText="Two hearts, one moment."
       />
+
+      <Collage images={images.slice(9, 12)} />
+      <Wide image={images[13]} />
   
       {/* MEMORY 1 */}
     {/* <Memory image={images[0]} text="The night everything changed." />
@@ -60,7 +75,7 @@ export default function Home() {
       <Wide image={images[7]} />
 
       {/* COLLAGE 2 */}
-      <Collage images={images.slice(8, 12)} />
+      
 
       <Memory image={images[12]} text="Everything slowed down." />
 
