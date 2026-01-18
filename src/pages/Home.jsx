@@ -1,119 +1,140 @@
 import "./Home.css";
 import { motion } from "framer-motion";
 
+const images = Array.from({ length: 29 }, (_, i) =>
+  `/memories/Memory (${i + 1}).jpeg`
+);
+
 export default function Home() {
   return (
-    <div className="home">
+    <div className="home-wrapper">
 
-      {/* HERO SECTION */}
-      <section className="hero">
-        <motion.div
+      {/* HERO */}
+      <section className="hero-title">
+        <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <h1>Coldplay Memories</h1>
-          <p>Moments that still glow.</p>
-        </motion.div>
-      </section>
-
-      {/* MEMORY — SINGLE MOMENT */}
-      <section className="memory">
-        <motion.img
-          src="/memories/Memory (1).jpeg"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        />
+          Coldplay Memories
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
         >
-          The night everything felt unreal.
+          Moments that still glow.
         </motion.p>
       </section>
 
-      {/* COLLAGE SECTION */}
-      <section className="collage">
-        <motion.img
-          src="/memories/Memory (2).jpeg"
-          initial={{ scale: 0.85, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        />
+      {/* MEMORY 1 */}
+      <Memory image={images[0]} text="The night everything changed." />
 
-        <motion.img
-          src="/memories/Memory (3).jpeg"
-          initial={{ scale: 0.85, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
+      <Memory image={images[1]} text="Lights that felt unreal." reverse />
 
-        <motion.img
-          src="/memories/Memory (4).jpeg"
-          initial={{ scale: 0.85, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        />
-      </section>
+      {/* COLLAGE 1 */}
+      <Collage images={images.slice(2, 5)} />
 
-      {/* MEMORY — DIFFERENT ANIMATION */}
-      <section className="memory reverse">
-        <motion.img
-          src="/memories/Memory (5).jpeg"
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        />
+      <Memory image={images[5]} text="Singing without knowing the lyrics." />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          When the lights came on, time stopped.
-        </motion.p>
-      </section>
+      <Memory image={images[6]} text="Some moments stay forever." reverse />
 
-      {/* MINI COLLAGE */}
-      <section className="collage small">
-        <motion.img
-          src="/memories/Memory (6).jpeg"
-          initial={{ rotate: -6, opacity: 0 }}
-          whileInView={{ rotate: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        />
+      {/* CINEMATIC */}
+      <Wide image={images[7]} />
 
-        <motion.img
-          src="/memories/Memory (7).jpeg"
-          initial={{ rotate: 6, opacity: 0 }}
-          whileInView={{ rotate: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
-      </section>
+      {/* COLLAGE 2 */}
+      <Collage images={images.slice(8, 12)} />
 
-      {/* FINAL MEMORY */}
-      <section className="memory final">
-        <motion.img
-          src="/memories/Memory (8).jpeg"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-        />
+      <Memory image={images[12]} text="Everything slowed down." />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          And somehow… we knew this would stay forever.
-        </motion.p>
-      </section>
+      <Memory image={images[13]} text="Just lights and feelings." reverse />
+
+      {/* COLLAGE 3 */}
+      <Collage images={images.slice(14, 18)} />
+
+      {/* FINAL */}
+      <FinalMemory image={images[28]} />
 
     </div>
+  );
+}
+
+/* ---------------- COMPONENTS ---------------- */
+
+function Memory({ image, text, reverse }) {
+  return (
+    <section className={`memory ${reverse ? "reverse" : ""}`}>
+      <motion.img
+        src={image}
+        initial={{ opacity: 0, x: reverse ? 80 : -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      />
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        viewport={{ once: true }}
+      >
+        {text}
+      </motion.p>
+    </section>
+  );
+}
+
+function Collage({ images }) {
+  return (
+    <section className="collage">
+      {images.map((img, i) => (
+        <motion.img
+          key={i}
+          src={img}
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: i * 0.15 }}
+          viewport={{ once: true }}
+        />
+      ))}
+    </section>
+  );
+}
+
+function Wide({ image }) {
+  return (
+    <section className="wide">
+      <motion.img
+        src={image}
+        initial={{ opacity: 0, scale: 1.1 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2 }}
+        viewport={{ once: true }}
+      />
+    </section>
+  );
+}
+
+function FinalMemory({ image }) {
+  return (
+    <section className="final">
+      <motion.img
+        src={image}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+      />
+
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Some nights never really end.
+      </motion.h2>
+    </section>
   );
 }
