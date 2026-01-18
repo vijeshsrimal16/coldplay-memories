@@ -1,3 +1,103 @@
+/* ======================
+   COLDPLAY BACKGROUND
+====================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0b0d2a;
+}
+
+
+.coldplay-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    135deg,
+    #5b2cff,
+    #3b6cff,
+    #ff4fd8,
+    #ffd84f
+  );
+
+  background-size: 300% 300%;
+  animation: coldplayGlow 18s ease infinite;
+}
+
+
+@keyframes coldplayGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================
+   COLDPLAY BACKGROUND
+====================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0b0d2a;
+}
+
+
+.coldplay-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    135deg,
+    #5b2cff,
+    #3b6cff,
+    #ff4fd8,
+    #ffd84f
+  );
+
+  background-size: 300% 300%;
+  animation: coldplayGlow 18s ease infinite;
+}
+
+
+@keyframes coldplayGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,11 +105,12 @@
 }
 
 .home-wrapper {
+  position: relative;
+  z-index: 1;
+
   width: 100vw;
   overflow-x: hidden;
-  background: #ffffff;
-  color: #111;
-  font-family: "Segoe UI", sans-serif;
+  color: white;
 }
 
 /* ================= HERO ================= */
@@ -39,32 +140,64 @@
 /* ================= MEMORY ================= */
 
 .memory {
+  position: relative;
   min-height: 100vh;
   width: 100vw;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 10vw;
-  gap: 6vw;
+  overflow: hidden;
 }
 
-.memory.reverse {
-  flex-direction: row-reverse;
-}
-
+/* IMAGE FULL SCREEN */
 .memory img {
-  width: 45vw;
-  max-width: 650px;
-  border-radius: 22px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
 }
 
-.memory p {
-  max-width: 420px;
-  font-size: 20px;
-  line-height: 1.6;
+/* DARK CINEMATIC OVERLAY */
+.memory::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 12, 40, 0.75),
+    rgba(10, 12, 40, 0.25)
+  );
+  z-index: 1;
 }
+
+/* TEXT ON IMAGE */
+.memory p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 480px;
+  margin-left: 10vw;
+
+  color: white;
+  font-size: 22px;
+  line-height: 1.7;
+
+  padding: 28px 32px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* REVERSE TEXT POSITION */
+.memory.reverse p {
+  margin-left: auto;
+  margin-right: 10vw;
+}
+
 
 /* ================= COLLAGE ================= */
 
@@ -119,6 +252,78 @@
 .final h2 {
   font-size: clamp(28px, 4vw, 46px);
 }
+
+.dual-memory {
+  width: 100vw;
+  padding: 10vh 8vw;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* each card */
+.dual-card {
+  position: relative;
+  height: 70vh;
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+/* image */
+.dual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* dark gradient */
+.dual-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 12, 40, 0.75),
+    rgba(10, 12, 40, 0.1)
+  );
+  z-index: 1;
+}
+
+/* text overlay */
+.dual-card p {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+
+  z-index: 2;
+  max-width: 80%;
+
+  color: white;
+  font-size: 20px;
+  line-height: 1.6;
+
+  padding: 18px 22px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .dual-memory {
+    grid-template-columns: 1fr;
+  }
+
+  .dual-card {
+    height: 60vh;
+  }
+}
+
+
 
 /* ================= MOBILE ================= */
 

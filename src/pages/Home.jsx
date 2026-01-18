@@ -7,6 +7,8 @@ const images = Array.from({ length: 29 }, (_, i) =>
 
 export default function Home() {
   return (
+    <>
+    <div className="coldplay-bg" />
     <div className="home-wrapper">
 
       {/* HERO */}
@@ -28,17 +30,31 @@ export default function Home() {
         </motion.p>
       </section>
 
+      <DualMemory
+        leftImage={images[0]}
+        rightImage={images[1]}
+        leftText="The crowd was loud, but you felt close."
+        rightText="Two hearts, one moment."
+      />
+  
       {/* MEMORY 1 */}
-      <Memory image={images[0]} text="The night everything changed." />
+    {/* <Memory image={images[0]} text="The night everything changed." />
 
-      <Memory image={images[1]} text="Lights that felt unreal." reverse />
+      <Memory image={images[1]} text="Lights that felt unreal." reverse /> */}
 
       {/* COLLAGE 1 */}
       <Collage images={images.slice(2, 5)} />
 
-      <Memory image={images[5]} text="Singing without knowing the lyrics." />
+      <DualMemory
+        leftImage={images[5]}
+        rightImage={images[6]}
+        leftText="Singing without knowing the lyrics."
+        rightText="Some moments stay forever."
+      />
 
-      <Memory image={images[6]} text="Some moments stay forever." reverse />
+    {/*  <Memory image={images[5]} text="Singing without knowing the lyrics." />
+
+      <Memory image={images[6]} text="Some moments stay forever." reverse /> */}
 
       {/* CINEMATIC */}
       <Wide image={images[7]} />
@@ -57,6 +73,7 @@ export default function Home() {
       <FinalMemory image={images[28]} />
 
     </div>
+    </>
   );
 }
 
@@ -84,6 +101,38 @@ function Memory({ image, text, reverse }) {
     </section>
   );
 }
+
+function DualMemory({ leftImage, rightImage, leftText, rightText }) {
+  return (
+    <section className="dual-memory">
+
+      <motion.div
+        className="dual-card"
+        initial={{ opacity: 0, x: -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <img src={leftImage} alt="" />
+        <p>{leftText}</p>
+      </motion.div>
+
+      <motion.div
+        className="dual-card"
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <img src={rightImage} alt="" />
+        <p>{rightText}</p>
+      </motion.div>
+
+    </section>
+  );
+}
+
+
 
 function Collage({ images }) {
   return (
