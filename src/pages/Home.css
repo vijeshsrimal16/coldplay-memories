@@ -1,0 +1,26 @@
+.home-wrapper {
+  min-height: 100vh;
+  background: #050510;
+  color: white;
+  padding: 40px;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #ff5cff, #5c7cff);
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.memory-box {
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
