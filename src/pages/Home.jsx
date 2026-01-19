@@ -8,22 +8,56 @@ const images = Array.from({ length: 29 }, (_, i) =>
 );
 
 const songs = [
-  { title: "Fix You", file: "/music/Coldplay - Fix You (Official Video) - Coldplay.mp3" },
-  { title: "Fix You", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Paradise", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "A Sky Full of Stars", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Mylo Xyloto", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Adventure of a Lifetime", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-   { title: "Yellow", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Fix You", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Paradise", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "A Sky Full of Stars", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Mylo Xyloto", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Adventure of a Lifetime", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-   { title: "Yellow", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Fix You", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" },
-  { title: "Paradise", file: "/music/Coldplay - A Sky Full Of Stars (Official Video).mp3" }
+  {
+    title: "Coldplay - A Sky Full Of Stars",
+    file: "/music/A Sky Full Of Stars.mp3",
+  },
+  {
+    title: "Coldplay - The Scientist",
+    file: "/music/The Scientist.mp3",
+  },
+  {
+    title: "Coldplay - Viva La Vida",
+    file: "/music/Viva La Vida.mp3",
+  },
+  {
+    title: "Coldplay - Yellow",
+    file: "/music/Yellow.mp3",
+  },
+  {
+    title: "Coldplay - Hymn For The Weekend",
+    file: "/music/Hymn For The Weekend.mp3",
+  },
+  {
+    title: "Coldplay - Paradise",
+    file: "/music/Paradise.mp3",
+  },
+  {
+    title: "Coldplay - feelslikeimfallinginlove",
+    file: "/music/feelslikeimfallinginlove.mp3",
+  },
+  {
+    title: "Coldplay - Clocks",
+    file: "/music/Clocks.mp3",
+  },
+  {
+    title: "Coldplay - Adventure Of A Lifetime",
+    file: "/music/Adventure Of A Lifetime.mp3",
+  },
+  {
+    title: "Coldplay - My Universe",
+    file: "/music/My Universe.mp3",
+  },
+  {
+    title: "Coldplay - ALL MY LOVE",
+    file: "/music/ALL MY LOVE.mp3",
+  },
+  {
+    title: "Coldplay - Something Just Like This",
+    file: "/music/Something Just Like This.mp3",
+  },
 ];
+
 
 // make copies
 const collageOne = images.slice(2, 5);
@@ -88,13 +122,57 @@ export default function Home() {
 
 </section>
 
+<section className="fixyou-row">
+
+  {/* LEFT COLUMN — VIDEO */}
+  <div className="fixyou-col media-col">
+    <video
+      className="fixyou-video"
+      autoPlay
+      loop
+      muted
+      playsInline
+    >
+      <source src="/Coldplay.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  {/* RIGHT COLUMN — MESSAGE + PLAYER */}
+  <div className="fixyou-col text-col">
+    
+    <h3 className="fixyou-message">
+
+When everything feels too heavy
+and the world doesn’t make sense anymore,<br />
+I’ll stay — And I’ll try to fix you.<br />
+    </h3>
+
+    {/* 🎵 player exactly under message */}
+   {/*} <div className="fixyou-message">
+      <MusicPlayer
+        title="Coldplay - Fix You"
+        src="public/music/Coldplay - Fix You (Official Video) - Coldplay"
+      /> 
+    </div> */}
+
+  </div>
+
+</section>
 
 
 
 <MusicPlayer
+  title="Coldplay - Fix You"
+  src="/music/Fix You.mp3"
+/>
+
+
+
+
+{ /* <MusicPlayer
   title="Coldplay — A Sky Full Of Stars"
   src="public/music/Coldplay - A Sky Full Of Stars (Official Video).mp3"
-/>
+/> */}
 
       <DualMemory
         leftImage={images[10]}
@@ -126,6 +204,45 @@ export default function Home() {
         leftText="The crowd was loud, but you felt close."
         rightText="Two hearts, one moment."
       />
+
+      <section className="songs-center">
+
+  <div className="songs-card">
+
+    <h2>
+      You can listen to all the Coldplay songs right here
+    </h2>
+
+    <div className="songs-grid">
+
+      {/* LEFT COLUMN */}
+      <div className="songs-col">
+        {songs.slice(0, 6).map((song, i) => (
+          <MusicPlayer
+            key={i}
+            title={song.title}
+            src={song.file}
+          />
+        ))}
+      </div>
+
+      {/* RIGHT COLUMN */}
+      <div className="songs-col">
+        {songs.slice(6, 12).map((song, i) => (
+          <MusicPlayer
+            key={i}
+            title={song.title}
+            src={song.file}
+          />
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
       
       
 

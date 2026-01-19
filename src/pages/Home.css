@@ -297,6 +297,81 @@ body {
    RESPONSIVE
 ====================== */
 
+/* ======================
+   FIX YOU ROW LAYOUT
+====================== */
+
+.fixyou-row {
+  width: 100vw;
+  min-height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10vh 8vw;
+  gap: 6vw;
+}
+
+/* common column */
+.fixyou-col {
+  flex: 1;
+}
+
+/* LEFT MEDIA COLUMN */
+.media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* video */
+.fixyou-video {
+  width: 100%;
+  max-width: 420px;
+
+  border-radius: 22px;
+  object-fit: cover;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+/* player under video */
+.fixyou-player {
+  margin-top: 26px;
+  max-width: 360px;
+}
+
+/* RIGHT TEXT COLUMN */
+.text-col {
+  max-width: 460px;
+}
+
+.fixyou-message {
+  font-size: 22px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .fixyou-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .media-col,
+  .text-col {
+    align-items: center;
+  }
+
+  .fixyou-message {
+    margin-top: 30px;
+  }
+}
+
+
+
 @media (max-width: 900px) {
   .hero-title {
     flex-direction: column;
@@ -327,3 +402,65 @@ body {
     width: 100%;
   }
 }
+
+/* ======================
+   COLDPLAY SONG CARD
+====================== */
+
+.songs-center {
+  width: 100vw;
+  padding: 14vh 6vw;
+
+  display: flex;
+  justify-content: center;
+}
+
+.songs-card {
+  width: 100%;
+  max-width: 900px;
+
+  padding: 50px 60px;
+  border-radius: 30px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 0 60px rgba(255, 0, 200, 0.15),
+    0 0 80px rgba(0, 200, 255, 0.12);
+}
+
+.songs-card h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+/* GRID */
+.songs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.songs-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .songs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .songs-card {
+    padding: 40px 28px;
+  }
+}
+
