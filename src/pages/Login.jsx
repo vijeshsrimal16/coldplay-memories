@@ -9,7 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "coldplay" && password === "memories") {
+    if (username === "coldplay" && password === "iwilltrytofixyou") {
       localStorage.setItem("coldplay_auth", "true");
       navigate("/home");
     } else {

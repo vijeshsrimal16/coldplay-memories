@@ -10,53 +10,54 @@ const images = Array.from({ length: 29 }, (_, i) =>
 const songs = [
   {
     title: "Coldplay - A Sky Full Of Stars",
-    file: "/music/A Sky Full Of Stars.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811492/A_Sky_Full_Of_Stars_xtgzv4.mp3",
   },
   {
     title: "Coldplay - The Scientist",
-    file: "/music/The Scientist.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811526/The_Scientist_x5lsqy.mp3",
   },
   {
     title: "Coldplay - Viva La Vida",
-    file: "/music/Viva La Vida.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811527/Viva_La_Vida_qc7vvq.mp3",
   },
   {
     title: "Coldplay - Yellow",
-    file: "/music/Yellow.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811530/Yellow_ac19rj.mp3",
   },
   {
     title: "Coldplay - Hymn For The Weekend",
-    file: "/music/Hymn For The Weekend.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811495/Hymn_For_The_Weekend_shluj0.mp3",
   },
   {
     title: "Coldplay - Paradise",
-    file: "/music/Paradise.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811518/Paradise_y8wgna.mp3",
   },
   {
     title: "Coldplay - feelslikeimfallinginlove",
-    file: "/music/feelslikeimfallinginlove.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811509/feelslikeimfallinginlove_uaatqw.mp3",
   },
   {
     title: "Coldplay - Clocks",
-    file: "/music/Clocks.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811532/Clocks_cmbuea.mp3",
   },
   {
     title: "Coldplay - Adventure Of A Lifetime",
-    file: "/music/Adventure Of A Lifetime.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811488/Adventure_Of_A_Lifetime_dornvm.mp3",
   },
   {
     title: "Coldplay - My Universe",
-    file: "/music/My Universe.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811514/My_Universe_nsacsq.mp3",
   },
   {
     title: "Coldplay - ALL MY LOVE",
-    file: "/music/ALL MY LOVE.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811484/ALL_MY_LOVE_mncuyu.mp3",
   },
   {
     title: "Coldplay - Something Just Like This",
-    file: "/music/Something Just Like This.mp3",
+    file: "https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811518/Something_Just_Like_This_ubiylc.mp3",
   },
 ];
+
 
 
 // make copies
@@ -163,8 +164,9 @@ I’ll stay — And I’ll try to fix you.<br />
 
 <MusicPlayer
   title="Coldplay - Fix You"
-  src="/music/Fix You.mp3"
+  src="https://res.cloudinary.com/dc2dkpzd1/video/upload/v1768811535/Fix_You_jxvvbo.mp3"
 />
+
 
 
 
