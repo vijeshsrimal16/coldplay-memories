@@ -179,7 +179,7 @@ I’ll stay — And I’ll try to fix you.<br />
       <DualMemory
         leftImage={images[10]}
         rightImage={images[12]}
-        leftText="The crowd was loud, but you felt close."
+        leftText="The night everything changed."
         rightText="Two hearts, one moment."
       />
 
@@ -203,8 +203,8 @@ I’ll stay — And I’ll try to fix you.<br />
       <DualMemory
         leftImage={images[22]}
         rightImage={images[26]}
-        leftText="The crowd was loud, but you felt close."
-        rightText="Two hearts, one moment."
+        leftText="Lights that felt unreal."
+        rightText="The crowd was loud, but you felt close."
       />
 
       <section className="songs-center">
